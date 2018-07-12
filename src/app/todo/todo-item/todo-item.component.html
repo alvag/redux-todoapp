@@ -6,5 +6,5 @@
         <label (dblclick)="editar()">{{todo.texto}}</label>
         <button class="destroy"></button>
     </div>
-    <input class="edit" [value]="todo.texto" [formControl]="txtInput" #txtInputFisico (blur)="editar()">
+    <input class="edit" [value]="todo.texto" [formControl]="txtInput" #txtInputFisico (blur)="editar()" (keyup.enter)="editarTodo()">
 </li>

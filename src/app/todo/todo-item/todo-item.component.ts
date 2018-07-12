@@ -3,7 +3,7 @@ import { Todo } from '../models/todo.model';
 import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.reducers';
-import { ToggleTodoAction } from '../todo.actions';
+import { ToggleTodoAction, EditarTodoAction } from '../todo.actions';
 
 @Component({
     selector: 'app-todo-item',
@@ -37,7 +37,17 @@ export class TodoItemComponent implements OnInit {
             setTimeout(() => {
                 this.txtInputFisico.nativeElement.select();
             }, 1);
+        } else {
+            this.editarTodo();
         }
+    }
+
+    editarTodo() {
+        if (this.txtInput.valid) {
+            const action = new EditarTodoAction(this.todo.id, this.txtInput.value);
+            this.store.dispatch(action);
+        }
+        this.txtInputFisico.nativeElement.blur();
     }
 
 }
