@@ -5,14 +5,8 @@
         <strong>0</strong> tareas pendientes</span>
     <!-- Remove this if you don't implement routing -->
     <ul class="filters">
-        <li>
-            <a class="selected" href="#/">todos</a>
-        </li>
-        <li>
-            <a href="#/active">pendientes</a>
-        </li>
-        <li>
-            <a href="#/completed">completados</a>
+        <li (click)="cambiarFiltro(filtro)" *ngFor="let filtro of filtrosValidos">
+            <a [ngClass]="{'selected' : filtro === filtroActual}">{{filtro}}</a>
         </li>
     </ul>
     <!-- Hidden if no completed items are left ↓ -->
