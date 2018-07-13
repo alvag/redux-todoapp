@@ -6,9 +6,9 @@
     <!-- Remove this if you don't implement routing -->
     <ul class="filters">
         <li (click)="cambiarFiltro(filtro)" *ngFor="let filtro of filtrosValidos">
-            <a [ngClass]="{'selected' : filtro === filtroActual}">{{filtro}}</a>
+            <a href="#{{filtro}}" [ngClass]="{'selected' : filtro === filtroActual}">{{filtro}}</a>
         </li>
     </ul>
     <!-- Hidden if no completed items are left ↓ -->
-    <button class="clear-completed">limpiar completados</button>
+    <button (click)="limpiarCompletados()" class="clear-completed">limpiar completados</button>
 </footer>
