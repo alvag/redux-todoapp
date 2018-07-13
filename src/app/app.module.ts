@@ -15,6 +15,7 @@ import { TodoAddComponent } from './todo/todo-add/todo-add.component';
 import { todoReducer } from './todo/todo.reducer';
 import { environment } from '../environments/environment';
 import { appReducers } from './app.reducers';
+import { FilterPipe } from './filter/filter.pipe';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { appReducers } from './app.reducers';
         TodosListComponent,
         TodoItemComponent,
         TodoFooterComponent,
-        TodoAddComponent
+        TodoAddComponent,
+        FilterPipe
     ],
     imports: [
         BrowserModule,
